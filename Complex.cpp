@@ -37,7 +37,31 @@ ComplexNumber ComplexNumber::operator/(ComplexNumber &other) const
     return result;
 }
 
-void ComplexNumber::operator=(ComplexNumber &other)
+void ComplexNumber::operator+=(const ComplexNumber &other)
+{
+    real += other.real;
+    imaginary += other.imaginary;
+}
+
+void ComplexNumber::operator-=(const ComplexNumber &other)
+{
+    real -= other.real;
+    imaginary -= other.imaginary;
+}
+
+void ComplexNumber::operator*=(const ComplexNumber &other)
+{
+    real *= other.real;
+    imaginary *= other.imaginary;
+}
+
+void ComplexNumber::operator/=(const ComplexNumber &other)
+{
+    real /= other.real;
+    imaginary /= other.imaginary;
+}
+
+void ComplexNumber::operator=(const ComplexNumber &other)
 {
     real = other.real;
     imaginary = other.imaginary;
@@ -61,16 +85,16 @@ bool ComplexNumber::operator!=(ComplexNumber &other) const
 
 double ComplexNumber::amplitude()
 {
-    return;
+    return real;
 }
 
 double ComplexNumber::phase()
 {
-    return;
+    return imaginary;
 }
 
 ostream &operator<<(ostream &os, const ComplexNumber &other)
 {
-    os << other.real << " + " << other.imaginary;
+    os << other.real << " + i" << other.imaginary;
     return os;
 }
