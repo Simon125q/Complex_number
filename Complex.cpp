@@ -9,65 +9,76 @@ ComplexNumber::ComplexNumber(double rl, double img)
     imaginary = img;
 }
 
-ComplexNumber ComplexNumber::operator+(ComplexNumber &other) const
+ComplexNumber::ComplexNumber(double rl)
+{
+    real = rl;
+    imaginary = 0;
+}
+
+ComplexNumber ComplexNumber::operator+(const ComplexNumber &other) const
 {
     ComplexNumber result(real + other.real, imaginary + other.imaginary);
 
     return result;
 }
 
-ComplexNumber ComplexNumber::operator-(ComplexNumber &other) const
+ComplexNumber ComplexNumber::operator-(const ComplexNumber &other) const
 {
     ComplexNumber result(real - other.real, imaginary - other.imaginary);
 
     return result;
 }
 
-ComplexNumber ComplexNumber::operator*(ComplexNumber &other) const
+ComplexNumber ComplexNumber::operator*(const ComplexNumber &other) const
 {
     ComplexNumber result(real * other.real, imaginary * other.imaginary);
 
     return result;
 }
 
-ComplexNumber ComplexNumber::operator/(ComplexNumber &other) const
+ComplexNumber ComplexNumber::operator/(const ComplexNumber &other) const
 {
     ComplexNumber result(double(real) / other.real, double(imaginary) / other.imaginary);
 
     return result;
 }
 
-void ComplexNumber::operator+=(const ComplexNumber &other)
+ComplexNumber& ComplexNumber::operator+=(const ComplexNumber &other)
 {
     real += other.real;
     imaginary += other.imaginary;
+    return *this;
 }
 
-void ComplexNumber::operator-=(const ComplexNumber &other)
+ComplexNumber& ComplexNumber::operator-=(const ComplexNumber &other)
 {
     real -= other.real;
     imaginary -= other.imaginary;
+    return *this;
 }
 
-void ComplexNumber::operator*=(const ComplexNumber &other)
+ComplexNumber& ComplexNumber::operator*=(const ComplexNumber &other)
 {
     real *= other.real;
     imaginary *= other.imaginary;
+    return *this;
 }
 
-void ComplexNumber::operator/=(const ComplexNumber &other)
+ComplexNumber& ComplexNumber::operator/=(const ComplexNumber &other)
 {
     real /= other.real;
     imaginary /= other.imaginary;
+    return *this;
 }
 
-void ComplexNumber::operator=(const ComplexNumber &other)
+ComplexNumber& ComplexNumber::operator=(const ComplexNumber &other)
 {
     real = other.real;
     imaginary = other.imaginary;
+    return *this;
 }
 
-bool ComplexNumber::operator==(ComplexNumber &other) const
+bool ComplexNumber::operator==(const ComplexNumber &other) const
 {
     if (real == other.real && imaginary == other.imaginary)
         return true;
@@ -75,7 +86,7 @@ bool ComplexNumber::operator==(ComplexNumber &other) const
         return false;
 }
 
-bool ComplexNumber::operator!=(ComplexNumber &other) const
+bool ComplexNumber::operator!=(const ComplexNumber &other) const
 {
     if (real != other.real || imaginary != other.imaginary)
         return true;
@@ -98,3 +109,36 @@ ostream &operator<<(ostream &os, const ComplexNumber &other)
     os << other.real << " + i" << other.imaginary;
     return os;
 }
+
+ComplexNumber operator+(double num, const ComplexNumber& obj) {
+    return ComplexNumber(num + obj.real, obj.imaginary);
+}
+
+ComplexNumber operator-(double num, const ComplexNumber& obj) {
+    return ComplexNumber(num - obj.real, obj.imaginary);
+}
+
+ComplexNumber operator*(double num, const ComplexNumber& obj) {
+    return ComplexNumber(num * obj.real, obj.imaginary);
+}
+
+ComplexNumber operator/(double num, const ComplexNumber& obj) {
+    return ComplexNumber(num / obj.real, obj.imaginary);
+}
+
+bool operator==(double num, const ComplexNumber &obj)
+{
+    if (num == obj.real && obj.imaginary == 0)
+        return true;
+    else
+        return false;
+}
+
+bool operator!=(double num, const ComplexNumber &obj)
+{
+    if (num != obj.real || obj.imaginary != 0)
+        return true;
+    else
+        return false;
+}
+

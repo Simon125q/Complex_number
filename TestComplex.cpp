@@ -8,6 +8,7 @@ void test2();
 void test3();
 void test4();
 void test5();
+void test6();
 
 int main()
 {
@@ -16,6 +17,7 @@ int main()
     test3();
     test4();
     test5();
+    test6();
     
     return 0;
 }
@@ -112,5 +114,26 @@ void test5()
 
     cout << "comp 2 amplitude: " << comp1.amplitude() << endl;
     cout << "comp 2 phase: " << comp1.phase() << endl;
+}
+
+void test6()
+{
+    cout << "\nTEST 6" << endl << endl;
+
+    ComplexNumber a(12, 13);
+    ComplexNumber b(21.3, 1.8);
+    ComplexNumber c(2, 1);
+    ComplexNumber res(0);
+
+    a += b += c;
+    (a += b) += c;
+    a *= b *= c;
+    (a *= b) *= c;
+    res = a + 7;
+    res = 7 + a;
+    res = b * 5;
+    res = 5 * b;
+    c == 3.5;
+    3.5 == c;
 }
 
