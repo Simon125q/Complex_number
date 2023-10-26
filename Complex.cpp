@@ -1,7 +1,10 @@
 #include <iostream>
+#include <math.h>
 #include "Complex.h"
 
 using namespace std;
+
+#define ERROR 1
 
 ComplexNumber::ComplexNumber(double rl, double img)
 {
@@ -31,14 +34,26 @@ ComplexNumber ComplexNumber::operator-(const ComplexNumber &other) const
 
 ComplexNumber ComplexNumber::operator*(const ComplexNumber &other) const
 {
-    ComplexNumber result(real * other.real, imaginary * other.imaginary);
+    double new_real = (real * other.real - imaginary * other.imaginary);
+    double new_img = (real * other.imaginary + imaginary * other.real);
+
+    ComplexNumber result(new_real, new_img);
 
     return result;
 }
 
 ComplexNumber ComplexNumber::operator/(const ComplexNumber &other) const
 {
-    ComplexNumber result(double(real) / other.real, double(imaginary) / other.imaginary);
+    
+    if (other.real == 0 && other.imaginary == 0) {
+        cout<<"You can't divide by 0"<<endl;
+        exit(ERROR);
+    }
+    double new_real = (real * other.real + imaginary * other.imaginary) / (pow(other.real, 2) + pow(other.imaginary, 2));
+    double new_img = (imaginary * other.real + real * other.imaginary) / pow(other.real, 2) + pow(other.imaginary, 2);
+
+    ComplexNumber result(new_real, new_img);
+
 
     return result;
 }
@@ -96,17 +111,22 @@ bool ComplexNumber::operator!=(const ComplexNumber &other) const
 
 double ComplexNumber::amplitude()
 {
-    return real;
+    return sqrt(pow(real, 2) + pow(imaginary, 2));
 }
 
 double ComplexNumber::phase()
 {
-    return imaginary;
+    return atan(imaginary / real);
 }
 
 ostream &operator<<(ostream &os, const ComplexNumber &other)
 {
-    os << other.real << " + i" << other.imaginary;
+    if (other.imaginary >= 0) {
+        os << other.real << " + i" << other.imaginary;
+    }
+    else {
+        os << other.real << " - i" << abs(other.imaginary);
+    }
     return os;
 }
 
