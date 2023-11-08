@@ -18,13 +18,14 @@ int main()
     test4();
     test5();
     test6();
-    
+
     return 0;
 }
 
 void test1()
 {
-    cout << "TEST 1" << endl << endl;
+    cout << "TEST 1" << endl
+         << endl;
 
     ComplexNumber comp1(12, 13);
     ComplexNumber comp2(21.3, 1.8);
@@ -44,7 +45,8 @@ void test1()
 
 void test2()
 {
-    cout << "\nTEST 2" << endl << endl;
+    cout << "\nTEST 2" << endl
+         << endl;
 
     ComplexNumber comp1(12, 13);
     ComplexNumber comp2(21.3, 1.8);
@@ -64,7 +66,8 @@ void test2()
 
 void test3()
 {
-    cout << "\nTEST 3" << endl << endl;
+    cout << "\nTEST 3" << endl
+         << endl;
 
     ComplexNumber comp1(12, 13);
     ComplexNumber comp2(21.3, 1.8);
@@ -84,7 +87,8 @@ void test3()
 
 void test4()
 {
-    cout << "\nTEST 4" << endl << endl;
+    cout << "\nTEST 4" << endl
+         << endl;
 
     ComplexNumber comp1(12, 13);
     ComplexNumber comp2(21.3, 1.8);
@@ -104,7 +108,8 @@ void test4()
 
 void test5()
 {
-    cout << "\nTEST 5" << endl << endl;
+    cout << "\nTEST 5" << endl
+         << endl;
 
     ComplexNumber comp1(12, 13);
     ComplexNumber comp2(21.3, 1.8);
@@ -118,7 +123,8 @@ void test5()
 
 void test6()
 {
-    cout << "\nTEST 6" << endl << endl;
+    cout << "\nTEST 6" << endl
+         << endl;
 
     ComplexNumber a(12, 13);
     ComplexNumber b(21.3, 1.8);
@@ -136,4 +142,3 @@ void test6()
     c == 3.5;
     3.5 == c;
 }
-

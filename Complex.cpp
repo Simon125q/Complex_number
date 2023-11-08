@@ -44,9 +44,10 @@ ComplexNumber ComplexNumber::operator*(const ComplexNumber &other) const
 
 ComplexNumber ComplexNumber::operator/(const ComplexNumber &other) const
 {
-    
-    if (other.real == 0 && other.imaginary == 0) {
-        cout<<"You can't divide by 0"<<endl;
+
+    if (other.real == 0 && other.imaginary == 0)
+    {
+        cout << "You can't divide by 0" << endl;
         exit(ERROR);
     }
     double new_real = (real * other.real + imaginary * other.imaginary) / (pow(other.real, 2) + pow(other.imaginary, 2));
@@ -54,39 +55,38 @@ ComplexNumber ComplexNumber::operator/(const ComplexNumber &other) const
 
     ComplexNumber result(new_real, new_img);
 
-
     return result;
 }
 
-ComplexNumber& ComplexNumber::operator+=(const ComplexNumber &other)
+ComplexNumber &ComplexNumber::operator+=(const ComplexNumber &other)
 {
     real += other.real;
     imaginary += other.imaginary;
     return *this;
 }
 
-ComplexNumber& ComplexNumber::operator-=(const ComplexNumber &other)
+ComplexNumber &ComplexNumber::operator-=(const ComplexNumber &other)
 {
     real -= other.real;
     imaginary -= other.imaginary;
     return *this;
 }
 
-ComplexNumber& ComplexNumber::operator*=(const ComplexNumber &other)
+ComplexNumber &ComplexNumber::operator*=(const ComplexNumber &other)
 {
     real *= other.real;
     imaginary *= other.imaginary;
     return *this;
 }
 
-ComplexNumber& ComplexNumber::operator/=(const ComplexNumber &other)
+ComplexNumber &ComplexNumber::operator/=(const ComplexNumber &other)
 {
     real /= other.real;
     imaginary /= other.imaginary;
     return *this;
 }
 
-ComplexNumber& ComplexNumber::operator=(const ComplexNumber &other)
+ComplexNumber &ComplexNumber::operator=(const ComplexNumber &other)
 {
     real = other.real;
     imaginary = other.imaginary;
@@ -121,28 +121,34 @@ double ComplexNumber::phase()
 
 ostream &operator<<(ostream &os, const ComplexNumber &other)
 {
-    if (other.imaginary >= 0) {
+    if (other.imaginary >= 0)
+    {
         os << other.real << " + i" << other.imaginary;
     }
-    else {
+    else
+    {
         os << other.real << " - i" << abs(other.imaginary);
     }
     return os;
 }
 
-ComplexNumber operator+(double num, const ComplexNumber& obj) {
+ComplexNumber operator+(double num, const ComplexNumber &obj)
+{
     return ComplexNumber(num + obj.real, obj.imaginary);
 }
 
-ComplexNumber operator-(double num, const ComplexNumber& obj) {
+ComplexNumber operator-(double num, const ComplexNumber &obj)
+{
     return ComplexNumber(num - obj.real, obj.imaginary);
 }
 
-ComplexNumber operator*(double num, const ComplexNumber& obj) {
+ComplexNumber operator*(double num, const ComplexNumber &obj)
+{
     return ComplexNumber(num * obj.real, obj.imaginary);
 }
 
-ComplexNumber operator/(double num, const ComplexNumber& obj) {
+ComplexNumber operator/(double num, const ComplexNumber &obj)
+{
     return ComplexNumber(num / obj.real, obj.imaginary);
 }
 
@@ -161,4 +167,3 @@ bool operator!=(double num, const ComplexNumber &obj)
     else
         return false;
 }
-

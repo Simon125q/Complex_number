@@ -11,11 +11,11 @@ public:
     ComplexNumber operator-(const ComplexNumber &other) const;
     ComplexNumber operator*(const ComplexNumber &other) const;
     ComplexNumber operator/(const ComplexNumber &other) const;
-    ComplexNumber& operator+=(const ComplexNumber &other);
-    ComplexNumber& operator-=(const ComplexNumber &other);
-    ComplexNumber& operator*=(const ComplexNumber &other);
-    ComplexNumber& operator/=(const ComplexNumber &other);
-    ComplexNumber& operator=(const ComplexNumber &other);
+    ComplexNumber &operator+=(const ComplexNumber &other);
+    ComplexNumber &operator-=(const ComplexNumber &other);
+    ComplexNumber &operator*=(const ComplexNumber &other);
+    ComplexNumber &operator/=(const ComplexNumber &other);
+    ComplexNumber &operator=(const ComplexNumber &other);
     bool operator==(const ComplexNumber &other) const;
     bool operator!=(const ComplexNumber &other) const;
     double amplitude();
@@ -23,9 +23,9 @@ public:
 };
 
 std::ostream &operator<<(std::ostream &os, const ComplexNumber &other);
-ComplexNumber operator+(double num, const ComplexNumber& obj);
-ComplexNumber operator-(double num, const ComplexNumber& obj);
-ComplexNumber operator*(double num, const ComplexNumber& obj);
-ComplexNumber operator/(double num, const ComplexNumber& obj);
-bool operator==(double num, const ComplexNumber& obj);
-bool operator!=(double num, const ComplexNumber& obj);
+ComplexNumber operator+(double num, const ComplexNumber &obj);
+ComplexNumber operator-(double num, const ComplexNumber &obj);
+ComplexNumber operator*(double num, const ComplexNumber &obj);
+ComplexNumber operator/(double num, const ComplexNumber &obj);
+bool operator==(double num, const ComplexNumber &obj);
+bool operator!=(double num, const ComplexNumber &obj);
