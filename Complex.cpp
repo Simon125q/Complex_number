@@ -74,15 +74,22 @@ ComplexNumber &ComplexNumber::operator-=(const ComplexNumber &other)
 
 ComplexNumber &ComplexNumber::operator*=(const ComplexNumber &other)
 {
-    real *= other.real;
-    imaginary *= other.imaginary;
+    real = real * other.real - imaginary * other.imaginary;
+    imaginary = real * other.imaginary + other.real * imaginary;
     return *this;
 }
 
 ComplexNumber &ComplexNumber::operator/=(const ComplexNumber &other)
 {
-    real /= other.real;
-    imaginary /= other.imaginary;
+    
+    if (other.real == 0 && other.imaginary == 0)
+    {
+        cout << "You can't divide by 0" << endl;
+        exit(ERROR);
+    }
+    real = (real * other.real + imaginary * other.imaginary) / (pow(other.real, 2) + pow(other.imaginary, 2));
+    imaginary = (imaginary * other.real + real * other.imaginary) / pow(other.real, 2) + pow(other.imaginary, 2);
+
     return *this;
 }
 
@@ -144,12 +151,21 @@ ComplexNumber operator-(double num, const ComplexNumber &obj)
 
 ComplexNumber operator*(double num, const ComplexNumber &obj)
 {
-    return ComplexNumber(num * obj.real, obj.imaginary);
+    return ComplexNumber(num * obj.real, num * obj.imaginary);
 }
 
 ComplexNumber operator/(double num, const ComplexNumber &obj)
 {
-    return ComplexNumber(num / obj.real, obj.imaginary);
+    if (obj.real == 0 && obj.imaginary == 0)
+    {
+        cout << "You can't divide by 0" << endl;
+        exit(ERROR);
+    }
+    double new_real = (num * obj.real + 0 * obj.imaginary) / (pow(obj.real, 2) + pow(obj.imaginary, 2));
+    double new_img = (0 * obj.real + num * obj.imaginary) / pow(obj.real, 2) + pow(obj.imaginary, 2);
+
+    ComplexNumber result(new_real, new_img);
+    return result;
 }
 
 bool operator==(double num, const ComplexNumber &obj)

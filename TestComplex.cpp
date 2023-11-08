@@ -3,26 +3,26 @@
 
 using namespace std;
 
-void test1();
-void test2();
-void test3();
-void test4();
-void test5();
-void test6();
+void testAddition();
+void testSubtraction();
+void testMultiplication();
+void testDivision();
+void testPhaseAndAmplitude();
+void testExamples();
 
 int main()
 {
-    test1();
-    test2();
-    test3();
-    test4();
-    test5();
-    test6();
+    testAddition();
+    testSubtraction();
+    testMultiplication();
+    testDivision();
+    testPhaseAndAmplitude();
+    testExamples();
 
     return 0;
 }
 
-void test1()
+void testAddition()
 {
     cout << "TEST 1" << endl
          << endl;
@@ -43,7 +43,7 @@ void test1()
     cout << "comp 3: " << comp3 << ", comp 2: " << comp2 << ", comp 1: " << comp1 << endl;
 }
 
-void test2()
+void testSubtraction()
 {
     cout << "\nTEST 2" << endl
          << endl;
@@ -64,7 +64,7 @@ void test2()
     cout << "comp 3: " << comp3 << ", comp 2: " << comp2 << ", comp 1: " << comp1 << endl;
 }
 
-void test3()
+void testMultiplication()
 {
     cout << "\nTEST 3" << endl
          << endl;
@@ -85,7 +85,7 @@ void test3()
     cout << "comp 3: " << comp3 << ", comp 2: " << comp2 << ", comp 1: " << comp1 << endl;
 }
 
-void test4()
+void testDivision()
 {
     cout << "\nTEST 4" << endl
          << endl;
@@ -106,7 +106,7 @@ void test4()
     cout << "comp 3: " << comp3 << ", comp 2: " << comp2 << ", comp 1: " << comp1 << endl;
 }
 
-void test5()
+void testPhaseAndAmplitude()
 {
     cout << "\nTEST 5" << endl
          << endl;
@@ -121,7 +121,7 @@ void test5()
     cout << "comp 2 phase: " << comp1.phase() << endl;
 }
 
-void test6()
+void testExamples()
 {
     cout << "\nTEST 6" << endl
          << endl;
@@ -130,15 +130,32 @@ void test6()
     ComplexNumber b(21.3, 1.8);
     ComplexNumber c(2, 1);
     ComplexNumber res(0);
+    bool bres;
 
+    cout << "a: " << a << ", b: " << b << ", c: " << c << endl;
     a += b += c;
+    cout << "a: " << a << ", b: " << b << ", c: " << c << endl;
     (a += b) += c;
+    cout << "a: " << a << ", b: " << b << ", c: " << c << endl;
     a *= b *= c;
+    cout << "a: " << a << ", b: " << b << ", c: " << c << endl;
     (a *= b) *= c;
+    cout << "a: " << a << ", b: " << b << ", c: " << c << endl;
     res = a + 7;
+    cout << "res:" << res << endl;
     res = 7 + a;
+    cout << "res:" << res << endl;
     res = b * 5;
+    cout << "res:" << res << endl;
     res = 5 * b;
-    c == 3.5;
-    3.5 == c;
+    cout << "res:" << res << endl;
+    bres = (c == 3.5);
+    cout << "c == 3.5: " << bres << endl;
+    bres = (3.5 == c);
+    cout << "3.5 == c: " << bres << endl;
+    bres = (c != 3.5);
+    cout << "c != 3.5: " << bres << endl;
+    bres = (3.5 != c);
+    cout << "3.5 != c: " << bres << endl;
+    
 }
