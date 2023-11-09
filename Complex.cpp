@@ -81,7 +81,7 @@ ComplexNumber &ComplexNumber::operator*=(const ComplexNumber &other)
 
 ComplexNumber &ComplexNumber::operator/=(const ComplexNumber &other)
 {
-    
+
     if (other.real == 0 && other.imaginary == 0)
     {
         cout << "You can't divide by 0" << endl;
@@ -123,18 +123,23 @@ double ComplexNumber::amplitude()
 
 double ComplexNumber::phase()
 {
-    return atan(imaginary / real);
+    if (real == 0)
+    {
+        cout << "You can't divide by 0" << endl;
+        exit(ERROR);
+    }
+    return atan2(imaginary, real);
 }
 
 ostream &operator<<(ostream &os, const ComplexNumber &other)
 {
     if (other.imaginary >= 0)
     {
-        os << other.real << " + i" << other.imaginary;
+        os << other.real << " + " << other.imaginary << "i";
     }
     else
     {
-        os << other.real << " - i" << abs(other.imaginary);
+        os << other.real << " - " << abs(other.imaginary) << "i";
     }
     return os;
 }
