@@ -87,8 +87,8 @@ ComplexNumber &ComplexNumber::operator/=(const ComplexNumber &other)
         cout << "You can't divide by 0" << endl;
         exit(ERROR);
     }
-    real = (real * other.real + imaginary * other.imaginary) / (pow(other.real, 2) + pow(other.imaginary, 2));
-    imaginary = (imaginary * other.real + real * other.imaginary) / pow(other.real, 2) + pow(other.imaginary, 2);
+    real = (real * other.real + imaginary * other.imaginary) / ((pow(other.real, 2) + pow(other.imaginary, 2)));
+    imaginary = (imaginary * other.real + real * other.imaginary) / (pow(other.real, 2) + pow(other.imaginary, 2));
 
     return *this;
 }
@@ -116,12 +116,12 @@ bool ComplexNumber::operator!=(const ComplexNumber &other) const
         return false;
 }
 
-double ComplexNumber::amplitude()
+double ComplexNumber::amplitude() const
 {
     return sqrt(pow(real, 2) + pow(imaginary, 2));
 }
 
-double ComplexNumber::phase()
+double ComplexNumber::phase() const
 {
     if (real == 0)
     {

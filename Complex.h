@@ -18,8 +18,8 @@ public:
     ComplexNumber &operator=(const ComplexNumber &other);
     bool operator==(const ComplexNumber &other) const;
     bool operator!=(const ComplexNumber &other) const;
-    double amplitude();
-    double phase();
+    double amplitude() const;
+    double phase() const;
 };
 
 std::ostream &operator<<(std::ostream &os, const ComplexNumber &other);
