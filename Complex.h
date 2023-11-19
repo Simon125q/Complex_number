@@ -5,8 +5,7 @@ class ComplexNumber
 public:
     double real;
     double imaginary;
-    ComplexNumber(double rel, double img);
-    ComplexNumber(double rel);
+    ComplexNumber(double rel, double img = 0);
     ComplexNumber operator+(const ComplexNumber &other) const;
     ComplexNumber operator-(const ComplexNumber &other) const;
     ComplexNumber operator*(const ComplexNumber &other) const;

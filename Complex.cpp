@@ -7,15 +7,8 @@ using namespace std;
 #define ERROR 1
 
 ComplexNumber::ComplexNumber(double rl, double img)
+    : real{rl}, imaginary{img}
 {
-    real = rl;
-    imaginary = img;
-}
-
-ComplexNumber::ComplexNumber(double rl)
-{
-    real = rl;
-    imaginary = 0;
 }
 
 ComplexNumber ComplexNumber::operator+(const ComplexNumber &other) const
